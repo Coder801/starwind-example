@@ -1,0 +1,25 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "plugins/*",
+    "core"
+  ],
+  "scripts": {
+    "dev:plugins": "lerna run serve --scope=plugin-example-react-19",
+    "dev:core": "lerna run dev --scope=core",
+    "dev:serve": "npm-run-all --parallel dev:plugins dev:core",
+    "dev": "npm-run-all --serial kill dev:serve",
+    "dev:test": "lerna run dev",
+    "kill": "kill-port --port 3000 && node ./scripts/kill.js",
+    "build": "lerna run build",
+    "start": "lerna run start"
+  },
+  "dependencies": {
+    "kill-port": "^2.0.1"
+  },
+  "devDependencies": {
+    "lerna": "^8.1.9",
+    "npm-run-all": "^4.1.5"
+  }
+}

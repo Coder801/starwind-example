@@ -1,0 +1,15 @@
+$gap: 10px;
+
+.component {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.container {
+  display: grid;
+  min-height: 80vh;
+  column-gap: $gap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

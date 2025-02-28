@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+
+  .copy {
+    width: 300px;
+    text-align: center;
+  }
+
+  .navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      margin: 0 20px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
