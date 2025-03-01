@@ -3,4 +3,19 @@
   align-items: center;
   justify-content: flex-start;
   height: 100%;
+
+  .navigation {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      margin: 0 20px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

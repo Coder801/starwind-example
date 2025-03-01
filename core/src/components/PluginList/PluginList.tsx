@@ -16,7 +16,7 @@ export const PluginList: FC = () => {
 
   return (
     <div className={styles.container}>
-      <Typography variant="h3" className={styles.title}>
+      <Typography tag="h3" className={styles.title}>
         Plugin List
       </Typography>
       <ul className={styles.list}>
@@ -28,7 +28,7 @@ export const PluginList: FC = () => {
                 [styles.active]: name === router.query?.plugin
               })}
             >
-              <Link href={`/plugins/${name}`} prefetch={false}>
+              <Link href={`/plugins/${name}`} className={styles.link} prefetch={false}>
                 {startCase(name)}
               </Link>
             </li>

@@ -44,8 +44,6 @@ const nextConfig: NextConfig = {
       ])
     );
 
-    console.log(remotes);
-
     config.resolve.fallback = { fs: false };
     config.plugins.push(
       new DefinePlugin({

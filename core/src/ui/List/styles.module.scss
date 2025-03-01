@@ -1,0 +1,19 @@
+.list {
+  margin: 0 0 2rem 1.5rem;
+
+  &.disc {
+    list-style: disc;
+  }
+
+  &.circle {
+    list-style: circle;
+  }
+
+  &.square {
+    list-style: square;
+  }
+
+  &.decimal {
+    list-style: decimal;
+  }
+}

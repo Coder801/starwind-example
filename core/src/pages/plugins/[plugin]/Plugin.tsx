@@ -4,6 +4,7 @@ import { startCase } from 'lodash';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button } from '@/ui/Button';
+import { Card } from '@/ui/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { importRegister } from '@/utils/importRegister';
@@ -52,7 +53,6 @@ const Plugin = () => {
       }
     };
 
-    console.log('pluginName:', pluginName, PLUGINS);
     handleImport();
   }, [pluginName]);
 
@@ -63,26 +63,21 @@ const Plugin = () => {
         <div id={INJECT_SECTION}></div>
 
         <div className={styles.control}>
-          <div className={styles.section}>
-            <p className={styles.title}>Get Items From Plugin</p>
-            <div className={styles.content}>
-              {!!items.length && (
-                <SyntaxHighlighter
-                  language="json"
-                  customStyle={{ padding: '14px', marginBottom: '14px' }}
-                >
-                  {JSON.stringify(items, null, 2)}
-                </SyntaxHighlighter>
-              )}
-              <Button onClick={() => handleItemsRequest()}>Get Items</Button>
-            </div>
-          </div>
-          <div className={styles.section}>
-            <p className={styles.title}>Get Items CPU Usage from Plugin</p>
-            <div className={styles.content}>
-              <Button onClick={() => handleCPUUsageRequest()}>Get Items</Button>
-            </div>
-          </div>
+          <Card className={styles.section} title="Get Items From Plugin">
+            {!!items.length && (
+              <SyntaxHighlighter
+                language="json"
+                customStyle={{ padding: '14px', marginBottom: '14px' }}
+              >
+                {JSON.stringify(items, null, 2)}
+              </SyntaxHighlighter>
+            )}
+            <Button onClick={() => handleItemsRequest()}>Get Items</Button>
+          </Card>
+
+          <Card className={styles.section} title="Get Items From Plugin">
+            <Button onClick={() => handleCPUUsageRequest()}>Get Items</Button>
+          </Card>
         </div>
       </div>
     </BaseLayout>

@@ -1,0 +1,20 @@
+$gap: 20px;
+
+.container {
+  min-height: 80vh;
+
+  & .title {
+    margin-bottom: 20px;
+  }
+
+  & .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    & .section {
+      width: calc(50% - 10px);
+      box-sizing: border-box;
+    }
+  }
+}

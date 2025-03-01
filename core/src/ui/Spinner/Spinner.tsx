@@ -1,11 +1,9 @@
-// import { FC } from "react";
+import { FC } from 'react';
 
-// import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-// export const Spinner: FC = () => (
-//   <div className={styles.container}>
-//     <div className={styles.spinner} />
-//   </div>
-// );
-
-export const Spinner = () => <div>Hello</div>;
+export const Spinner: FC = () => (
+  <div className={styles.container}>
+    <div className={styles.spinner} />
+  </div>
+);

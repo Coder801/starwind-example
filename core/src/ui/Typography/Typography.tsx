@@ -1,25 +1,27 @@
-import clsx from "clsx";
-import { FC } from "react";
+import clsx from 'clsx';
+import { join, compact } from 'lodash';
 
-import styles from "./styles.module.scss";
-import { TypographyProps } from "./types";
+import styles from './styles.module.scss';
+import { TypographyProps } from './types';
 
-export const Typography: FC<TypographyProps> = ({
-  color = "primary",
-  variant = "p",
+export const Typography = ({
+  variant = 'primary',
+  tag = 'p',
+  size = 'l',
+  weight = 'regular',
   className,
   children,
-  style,
-}) => {
-  const Component = variant;
-
-  const current = variant === "p" ? "paragraph" : `header-${variant}`;
-  const currentClass = color ? `${current}-${color}` : "";
-
-  const classes = clsx(styles[currentClass], className);
+  onClick
+}: TypographyProps) => {
+  const combineClassName = (...strings: string[]) => join(compact(strings), '-');
+  const Component = tag;
+  const current =
+    tag === 'p'
+      ? styles[combineClassName('paragraph', variant, size, weight)]
+      : styles[combineClassName('header', tag, variant)];
 
   return (
-    <Component className={classes} style={style}>
+    <Component className={clsx(current, className)} onClick={onClick}>
       {children}
     </Component>
   );

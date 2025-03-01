@@ -6,10 +6,9 @@
     "core"
   ],
   "scripts": {
-    "dev:plugins": "lerna run serve --scope=plugin-example-react-19",
-    "dev:core": "lerna run dev --scope=core",
+    "dev:root": "lerna run dev",
     "dev:serve": "npm-run-all --parallel dev:plugins dev:core",
-    "dev": "npm-run-all --serial kill dev:serve",
+    "dev": "npm-run-all --serial kill dev:root",
     "dev:test": "lerna run dev",
     "kill": "kill-port --port 3000 && node ./scripts/kill.js",
     "build": "lerna run build",

@@ -1,29 +1,76 @@
 /* ===========================
 Typography
 =========================== */
+@use 'sass:map';
+@use './mixins.scss' as *;
+
+/* ===========================
+Typography
+=========================== */
+$font-sizes: (
+  (
+    name: h1,
+    font-size: 48px,
+    line-height: 110%
+  ),
+  (
+    name: h2,
+    font-size: 32px,
+    line-height: 110%
+  ),
+  (
+    name: h3,
+    font-size: 24px,
+    line-height: 110%
+  ),
+  (
+    name: h4,
+    font-size: 20px,
+    line-height: 110%
+  ),
+  (
+    name: h5,
+    font-size: 18px,
+    line-height: 110%
+  )
+);
+
 html {
   font-size: 18px;
-  font-family: var(--fontRoboto);
+  font-family: var(--fontIBMPlexMono);
+  color: var(--border);
 }
 input,
 select,
-textarea {
-  font-family: var(--fontRoboto);
+textarea,
+ol,
+ul {
+  font-family: var(--fontIBMPlexMono);
 }
-
-/* All heading */
-:--heading {
-  font-family: var(--fontRoboto);
-}
-p {
-  font-size: 1rem;
-  margin-top: 0;
-  margin-bottom: 1.1rem;
-  line-height: 1.6rem;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-}
-
 strong {
   font-weight: 900;
+}
+mark {
+  background-color: var(--gray-three);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin: 0 4px;
+  font-size: 17px;
+  color: var(--primary-two);
+}
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@each $item in $font-sizes {
+  #{map.get($item, name)} {
+    font-size: map.get($item, font-size);
+    line-height: map.get($item, line-height);
+  }
 }

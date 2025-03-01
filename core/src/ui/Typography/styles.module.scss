@@ -1,49 +1,63 @@
-// Extends
+// Typography
 // ==============================
-.header-basic {
-  letter-spacing: 0.005em;
-  text-align: left;
+@mixin wrap-font-size($size, $lineHeight) {
+  &-light {
+    font-weight: 100;
+    font-size: $size;
+    line-height: $lineHeight;
+  }
+  &-regular {
+    font-weight: 400;
+    font-size: $size;
+    line-height: $lineHeight;
+  }
+  &-medium {
+    font-weight: 500;
+    font-size: $size;
+    line-height: $lineHeight;
+  }
+  &-bold {
+    font-weight: 700;
+    font-size: $size;
+    line-height: $lineHeight;
+  }
 }
 
-.paragraph-basic {
-  font-weight: 500;
-  letter-spacing: 0.005em;
-}
-
+// Headers
 @for $i from 1 through 6 {
-  .header-h#{$i}-primary {
-    @extend .header-basic;
-    color: var(--black);
-  }
-  .header-h#{$i}-secondary {
-    @extend .header-basic;
-    color: var(--green-three);
-  }
-  .header-h#{$i}-tertiary {
-    @extend .header-basic;
-    color: var(--yelow-one);
-  }
-  .header-h#{$i}-error {
-    @extend .header-basic;
-    color: var(--red-six);
+  .header-h#{$i} {
+    letter-spacing: 0.005em;
+
+    &-primary {
+      color: var(--header-primary);
+      font-family: var(--fontEditUndoBRK);
+      text-shadow: 0.03em 0.04em 0 var(--secondary-one), -0.03em -0.03em 0 var(--secondary-one),
+        0.05em 0.03em 0 var(--secondary-one), 0.05em -0.03em 0 var(--secondary-one);
+    }
+
+    &-secondary {
+      color: var(--header-secondary);
+      font-family: var(--fontIBMPlexMono);
+    }
   }
 }
+
+// Paragrpahs
 
 .paragraph {
-  &-primary {
-    @extend .paragraph-basic;
-    color: var(--black);
-  }
+  &-primary,
   &-secondary {
-    @extend .paragraph-basic;
-    color: var(--green-three);
-  }
-  &-tertiary {
-    @extend .paragraph-basic;
-    color: var(--yelow-one);
-  }
-  &-error {
-    @extend .paragraph-basic;
-    color: var(--red-six);
+    &-xs {
+      @include wrap-font-size(12px, 16px);
+    }
+    &-s {
+      @include wrap-font-size(14px, 18px);
+    }
+    &-m {
+      @include wrap-font-size(16px, 24px);
+    }
+    &-l {
+      @include wrap-font-size(18px, 28px);
+    }
   }
 }
