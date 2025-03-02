@@ -1,12 +1,12 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import Image from 'next/image';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+// import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import Image from 'next/image';
 
 import { Base as BaseLayout } from '@/layouts/Base';
-import { Typography } from '@/ui/Typography';
-import { SvgIcon } from '@/ui/SvgIcon';
+// import { Typography } from '@/ui/Typography';
+// import { SvgIcon } from '@/ui/SvgIcon';
 import { Divider } from '@/ui/Divider';
-import { Card } from '@/ui/Card';
+// import { Card } from '@/ui/Card';
 
 import { Description } from './components/Description';
 import { ProjectStructure } from './components/ProjectStructure';

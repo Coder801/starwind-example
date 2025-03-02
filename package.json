@@ -12,13 +12,21 @@
     "dev:test": "lerna run dev",
     "kill": "kill-port --port 3000 && node ./scripts/kill.js",
     "build": "lerna run build",
-    "start": "lerna run start"
+    "start": "lerna run start",
+    "docker:up": "docker-compose up -d",
+    "docker:build": "docker-compose up --build",
+    "docker:down": "docker-compose down",
+    "docker:restart": "npm run docker:down && npm run docker:up",
+    "docker:logs": "docker-compose logs -f"
   },
-  "dependencies": {
-    "kill-port": "^2.0.1"
+  "resolutions": {
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0"
   },
   "devDependencies": {
+    "kill-port": "^2.0.1",
     "lerna": "^8.1.9",
     "npm-run-all": "^4.1.5"
-  }
+  },
+  "packageManager": "yarn@4.7.0+sha512.5a0afa1d4c1d844b3447ee3319633797bcd6385d9a44be07993ae52ff4facabccafb4af5dcd1c2f9a94ac113e5e9ff56f6130431905884414229e284e37bb7c9"
 }
