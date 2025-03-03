@@ -1,24 +1,33 @@
 $gap: 10px;
 
-.component {
-  box-sizing: border-box;
-  padding: 20px;
-}
-
 .container {
   min-height: 80vh;
   padding-top: 20px;
 
-  & .icon {
-    position: relative;
-    margin-right: 10px;
-  }
+  & div {
+    & > div,
+    & > p,
+    & > h2,
+    & > h3,
+    & > h4,
+    & > h5,
+    & > h6 {
+      margin-bottom: 20px;
+    }
 
-  & > * {
-    margin-bottom: 20px;
-  }
+    & h2 > div {
+      margin-right: 10px;
+      position: relative;
+      overflow: visible;
+      top: 5px;
+    }
 
-  & h2 > div {
-    margin-right: 10px;
+    & .divider {
+      margin: 40px 0;
+    }
+
+    & .code {
+      margin: 20px 0;
+    }
   }
 }

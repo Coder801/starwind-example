@@ -1,0 +1,27 @@
+.container {
+  flex: 1;
+  border-radius: 4px;
+  position: relative;
+
+  & .content {
+    padding: 20px;
+    background-color: var(--background-four);
+  }
+
+  & .copy {
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    cursor: pointer;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: var(--background-five);
+    }
+  }
+}

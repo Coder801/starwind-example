@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  gap: 10px;
+
+  & .item {
+    cursor: pointer;
+    height: 24px;
+  }
+
+  & .item:not(:last-child) {
+    border-right: 1px solid var(--white-two);
+    padding-right: 10px;
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "description": {
+    "title": "StarFleet Project — A Platform for Monitoring and Managing Information Systems",
+    "intro": "<strong>StarFleet Project</strong> is an open-source framework designed for building monitoring and management systems for various information systems. When developing the architecture and choosing technologies, we focused on a low entry threshold for new developers, making it easy to get started with the project. To ensure high reliability and scalability, we used proven technologies such as <mark>Node.js</mark>, <mark>Next.js</mark>, <mark>React.js</mark>, <mark>Docker</mark>, and <mark>Nginx</mark>.",
+    "components_title": "Key Components of the StarFleet Project",
+    "components_text": "The main driving force of <mark>StarFleet Project</mark> is plugin developers. We believe that StarFleet's success directly depends on the community, and we owe our growth to you, the plugin developers. With StarFleet Plugins, you can extend the system's functionality on both the Frontend and Backend. The project offers flexibility in choosing tools and frameworks for plugin development, whether it’s <mark>React</mark>, <mark>Vue</mark>, <mark>Angular</mark>, or others.",
+    "module_federation": "The plugin integration system operates using <mark>Module Federation</mark> (Webpack), allowing plugins to be independent and dynamically loaded into the main application. StarFleet enables effortless plugin development with minimal restrictions on tool selection while providing ready-made scripts and code examples to help even beginner developers create plugins with ease.",
+    "integration_title": "Integrating Plugins into the StarFleet Core",
+    "integration_intro": "The StarFleet Project core serves as the foundation for plugin interaction and provides several key services and tools:",
+    "integration_auth": "Authentication and authorization to secure the system.",
+    "integration_storage": "A key-value storage service for data exchange between plugins.",
+    "integration_messaging": "Messaging mechanisms for communication between plugins on both the Frontend and Backend.",
+    "integration_styling": "Styling components for React.js, helping you create a unified interface style and reducing time spent searching for UI components.",
+    "scalability_title": "Scalability and Flexibility",
+    "scalability_intro": "The project provides two main builds for development and deployment:",
+    "scalability_docker": "<mark>Docker</mark> — containerization and deployment across different environments.",
+    "scalability_lerna": "<mark>Lerna Monorepo</mark> — used for dynamic plugin development and management. Deploys plugins as independent applications on different ports.",
+    "documentation_title": "Code Examples and Documentation",
+    "documentation_text": "We also provide extensive documentation and code examples to help you solve common tasks such as aggregating data from third-party systems. These examples and ready-made solutions allow you to focus on business logic rather than implementing complex technical details.",
+    "final_text": "<strong>StarFleet Project</strong> aims to make plugin development simple and accessible for everyone, providing a reliable and scalable platform for monitoring and managing information systems."
+  },
+  "structure": {
+    "title": "Project Structure",
+    "intro": "The project is organized as a monorepository using <mark>Lerna</mark> and <mark>yarn workspaces</mark>.",
+    "list_item_1": "<mark>core/</mark> – the main interface written in Next.js. It contains pages, API routes, and the base application logic.",
+    "list_item_2": "<mark>plugins/</mark> – the directory for plugins. Each plugin is a separate module and can be built with any framework (React, Vue, Angular). Plugin integration is implemented using Webpack Module Federation.",
+    "list_item_3": "<mark>scripts/</mark> – scripts for building, managing plugins, and automating deployment."
+  },
+  "install_and_run": {
+    "title": "Installation and Running",
+    "installDependencies": "🛠 Installing Dependencies",
+    "installDescription": "By default, when using <mark>Lerna</mark>, the <mark>Next.js</mark> (core) script will run at <a href='#'>http://localhost:3000</a>. Plugins will be available on ports <mark>3001</mark>, <mark>3002</mark>, and so on. Before running, make sure these ports are free. A script is also provided to terminate processes using these ports. Be careful and ensure that no important processes are among them.",
+    "note": "* We recommend using Yarn as a package manager since it offers more capabilities for working with monorepositories.",
+    "runProject": "🛠 Running the Project in Development Mode",
+    "createPlugin": "🔌 How to Create and Connect a New Plugin?",
+    "cliUsage": "1. Using <mark>starfleet-cli</mark>",
+    "cliDescription": "For convenience, we have created an <mark>npm script</mark> <a href='https://www.npmjs.com/package/starfleet-cli' target='_blank'>starfleet-cli</a>, which automatically generates the structure of a new plugin, removes, renames, and connects it to the StarFleet core.",
+    "cliExample": "Usage Example",
+    "cliProcess": "The plugin will then ask a few questions to create a new plugin and apply the default template. (In this example, a React template is created on port <mark>3004</mark>).",
+    "manualSetup": "2. Manual Setup",
+    "manualDescription": "If you want to create a plugin manually, follow these steps:",
+    "step1": "1. Create a folder in <mark>plugins</mark> with your plugin’s name and navigate into it.",
+    "step2": "2. Initialize a new package.json:"
+  },
+  "docker_info": {
+    "title": "Using Docker to Run the Project",
+    "description": "Docker allows running the core of the StarFleet Project and all plugins inside containers, providing environment isolation and easy deployment.",
+    "stepsTitle": "Steps to Run the Project in Docker",
+    "step1": "Make sure you have Docker installed",
+    "step2": "Build Docker images in the root of the project by running the following commands:",
+    "step3": "(Optional) Start the containers if they are not running:",
+    "structureTitle": "Docker Container Structure",
+    "containerCore": "core",
+    "containerCoreDescription": "Container with the main interface on Next.js",
+    "containerPluginA": "plugin-a",
+    "containerPluginB": "plugin-b, …",
+    "containerPluginsDescription": "Containers with connected plugins",
+    "containerNginx": "nginx",
+    "containerNginxDescription": "Reverse proxy for managing requests between containers.",
+    "step4": "By default, the project will run on",
+    "step4Description": "and plugins will only be available inside the container"
+  }
+}

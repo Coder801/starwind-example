@@ -10,13 +10,11 @@ type BaseProps = {
   children: ReactNode;
 };
 
-export const Base: FC<BaseProps> = ({ children }) => {
-  return (
-    <div className={styles.container}>
-      <Header className={styles.header} />
-      <Sidebar className={styles.sidebar} />
-      <Main className={styles.main}>{children}</Main>
-      <Footer className={styles.footer} />
-    </div>
-  );
-};
+export const Base: FC<BaseProps> = ({ children }) => (
+  <div className={styles.container}>
+    <Header className={styles.header} />
+    <Sidebar className={styles.sidebar} />
+    <Main className={styles.main}>{children}</Main>
+    <Footer className={styles.footer} />
+  </div>
+);

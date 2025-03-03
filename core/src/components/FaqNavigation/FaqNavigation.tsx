@@ -1,5 +1,4 @@
-import { startCase } from 'lodash';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
@@ -8,11 +7,37 @@ import styles from './styles.module.scss';
 
 import { Typography } from '@/ui/Typography';
 
-import { useAppSelector, selectPlugins } from '@/context/AppContext';
-
 export const FaqNavigation: FC = () => {
-  const plugins = useAppSelector(selectPlugins);
   const router = useRouter();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
+  const links = [
+    {
+      id: 'description',
+      name: 'Description'
+    },
+    {
+      id: 'project-structure',
+      name: 'Project Structure'
+    },
+    {
+      id: 'install-and-run',
+      name: 'Install And Run'
+    },
+    {
+      id: 'docker-info',
+      name: 'Docker'
+    }
+  ];
 
   return (
     <div className={styles.container}>
@@ -20,19 +45,18 @@ export const FaqNavigation: FC = () => {
         FAQ
       </Typography>
       <ul className={styles.list}>
-        {plugins &&
-          plugins.map(({ name }) => (
-            <li
-              key={name}
-              className={clsx(styles.item, {
-                [styles.active]: name === router.query?.plugin
-              })}
-            >
-              <Link href={`/plugins/${name}`} prefetch={false}>
-                {startCase(name)}
-              </Link>
-            </li>
-          ))}
+        {links.map(({ name, id }) => (
+          <li
+            key={id}
+            className={clsx(styles.item, {
+              [styles.active]: name === router.query?.plugin
+            })}
+          >
+            <Link href={`#${id}`} prefetch={false}>
+              {name}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

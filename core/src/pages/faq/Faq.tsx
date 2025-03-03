@@ -1,16 +1,12 @@
-// import SyntaxHighlighter from 'react-syntax-highlighter';
-// import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-// import Image from 'next/image';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 import { Base as BaseLayout } from '@/layouts/Base';
-// import { Typography } from '@/ui/Typography';
-// import { SvgIcon } from '@/ui/SvgIcon';
 import { Divider } from '@/ui/Divider';
-// import { Card } from '@/ui/Card';
 
 import { Description } from './components/Description';
 import { ProjectStructure } from './components/ProjectStructure';
 import { InstallAndRun } from './components/InstallAndRun';
+import { DockerInfo } from './components/DockerInfo';
 
 import styles from './styles.module.scss';
 
@@ -18,11 +14,14 @@ const Faq = () => {
   return (
     <BaseLayout>
       <div className={styles.container}>
+        <LanguageSwitcher className={styles.lang} />
         <Description />
-        <Divider />
+        <Divider className={styles.divider} />
         <ProjectStructure />
-        <Divider />
+        <Divider className={styles.divider} />
         <InstallAndRun />
+        <Divider className={styles.divider} />
+        <DockerInfo />
       </div>
     </BaseLayout>
   );

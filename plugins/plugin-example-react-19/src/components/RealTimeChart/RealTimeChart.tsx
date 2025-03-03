@@ -11,12 +11,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { transformedData } from "./utils";
+import { transformedData, FormattedDataItem } from "./utils";
 
 export const RealTimeChart = () => {
-  const [data, setData] = useState<{ name: string; value: number }[] | null>(
-    null
-  );
+  const [data, setData] = useState<FormattedDataItem[] | null>(null);
   const fetchLink = "https://deploy-test-donischenko.netlify.app/api/get-stats";
 
   useEffect(() => {
@@ -28,7 +26,8 @@ export const RealTimeChart = () => {
         }
         const dataJson = await response.json();
         if (dataJson.length) {
-          setData(transformedData(dataJson));
+          const formatted = transformedData(dataJson);
+          setData(formatted);
         }
       } catch (err) {
         console.error((err as Error).message);
@@ -37,7 +36,7 @@ export const RealTimeChart = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 2000);
+    const intervalId = setInterval(fetchData, 4000);
 
     return () => clearInterval(intervalId);
   }, []);

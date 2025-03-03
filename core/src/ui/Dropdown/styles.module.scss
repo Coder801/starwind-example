@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  z-index: 100;
+}
+
+.toggle {
+  display: flex;
+}
+
+.content {
+  position: absolute;
+  top: calc(100% + 2px);
+  overflow: hidden;
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}

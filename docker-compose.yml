@@ -8,7 +8,8 @@ services:
       - "80:80"
     depends_on:
       - core
-      - plugin-example-react-18
+      # - plugin-example-react-18
+      # - plugin-example-react-19
     networks:
       - external-network
       - internal-network
@@ -20,7 +21,6 @@ services:
     container_name: core
     ports:
       - "3000:3000"
-      - "4000:4000" # Port for HMR
     volumes:
       - ./core:/app
       - /app/node_modules
@@ -32,24 +32,24 @@ services:
       - internal-network
 
   # Plugins
-  plugin-example-react-18:
-    build:
-      context: ./plugins/plugin-example-react-18
-      dockerfile: Dockerfile
-    container_name: plugin-example-react-18
-    expose:
-      - "3001"
-    networks:
-      - internal-network
-  plugin-example-react-19:
-    build:
-      context: ./plugins/plugin-example-react-19
-      dockerfile: Dockerfile
-    container_name: plugin-example-react-19
-    expose:
-      - "3002"
-    networks:
-      - internal-network
+  # plugin-example-react-18:
+  #   build:
+  #     context: ./plugins/plugin-example-react-18
+  #     dockerfile: Dockerfile
+  #   container_name: plugin-example-react-18
+  #   expose:
+  #     - "3001"
+  #   networks:
+  #     - internal-network
+  # plugin-example-react-19:
+  #   build:
+  #     context: ./plugins/plugin-example-react-19
+  #     dockerfile: Dockerfile
+  #   container_name: plugin-example-react-19
+  #   expose:
+  #     - "3002"
+  #   networks:
+  #     - internal-network
 
 networks:
   external-network:

@@ -1,23 +1,19 @@
 import { Card } from "react-bootstrap";
+import { Chart } from "primereact/chart";
 
 import { useState, useEffect } from "react";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 
-import { transformedData } from "./utils";
+import {
+  transformedData,
+  getRandomElementsByCount,
+  FormattedDataItem,
+} from "./utils";
 
 export const RealTimeChart = () => {
-  const [data, setData] = useState<{ name: string; value: number }[] | null>(
-    null
-  );
+  const [data, setData] = useState<FormattedDataItem[] | null>(null);
   const fetchLink = "https://deploy-test-donischenko.netlify.app/api/get-stats";
+  const [chartData, setChartData] = useState({});
+  const [chartOptions, setChartOptions] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +24,11 @@ export const RealTimeChart = () => {
         }
         const dataJson = await response.json();
         if (dataJson.length) {
-          setData(transformedData(dataJson));
+          const formatted = getRandomElementsByCount(
+            transformedData(dataJson),
+            4
+          );
+          setData(formatted);
         }
       } catch (err) {
         console.error((err as Error).message);
@@ -37,41 +37,54 @@ export const RealTimeChart = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 2000);
+    const intervalId = setInterval(fetchData, 200000);
 
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    console.log(data);
+    const dataTemplate = {
+      labels: ["Process 1", "Process 2", "Process 3", "Process 4"],
+      datasets: [
+        {
+          label: "Proces loading",
+          data: data && data.map((item) => item.value),
+          backgroundColor: [
+            "rgba(255, 159, 64, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+          ],
+          borderColor: [
+            "rgb(255, 159, 64)",
+            "rgb(75, 192, 192)",
+            "rgb(54, 162, 235)",
+            "rgb(153, 102, 255)",
+          ],
+          borderWidth: 1,
+        },
+      ],
+    };
+    const options = {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    };
+
+    setChartData(dataTemplate);
+    setChartOptions(options);
+  }, [data]);
+
   return (
     <Card>
-      <Card.Header>CPU Usage</Card.Header>
+      <Card.Header>Processor Usage</Card.Header>
       <Card.Body>
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart
-            width={500}
-            height={400}
-            data={data || []}
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="value"
-              isAnimationActive={false}
-              stackId="1"
-              stroke="#8884d8"
-              fill="#8884d8"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
+        <div className="card">
+          <Chart type="bar" data={chartData} options={chartOptions} />
+        </div>
       </Card.Body>
     </Card>
   );
