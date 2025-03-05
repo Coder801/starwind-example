@@ -21,7 +21,7 @@ To start the project in development mode, use:
 yarn dev
 ```
 
-Once started, the platform will be available at http://localhost:3000.
+Once started, the platform will be available at [http://localhost:3000](http://localhost:3000).
 
 For production build:
 
@@ -43,6 +43,7 @@ yarn build
 /root
 │── core/               # Main UI folder
 │── plugins/            # Independent plugins folder
+│── scripts/            # Global scripts
 │── lerna.json          # Monorepository configuration
 │── Dockerfile          # Docker container setup
 │── docker-compose.yml  # Docker services configuration
@@ -50,10 +51,6 @@ yarn build
 │── README.md           # Project documentation
 ```
 
-## Development
+## Documentation
 
-To run a specific package in `Lerna`, use:
-
-```sh
-lerna run dev --scope=my-package
-```
+After starting the project, for detailed documentation, go to the FAQ page: [http://localhost:3000/faq](http://localhost:3000/faq).
