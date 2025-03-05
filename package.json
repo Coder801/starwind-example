@@ -31,5 +31,6 @@
   "config": {
     "core": "./core",
     "plugins": "./plugins"
-  }
+  },
+  "packageManager": "yarn@4.7.0"
 }
