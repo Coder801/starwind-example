@@ -37,6 +37,7 @@
     "cliDescription": "For convenience, we have created an <mark>npm script</mark> <a href='https://www.npmjs.com/package/starfleet-cli' target='_blank'>starfleet-cli</a>, which automatically generates the structure of a new plugin, removes, renames, and connects it to the StarFleet core.",
     "cliExample": "Usage Example",
     "cliProcess": "The plugin will then ask a few questions to create a new plugin and apply the default template. (In this example, a React template is created on port <mark>3004</mark>).",
+    "cliProcessNote": "You must ensure that the ports for local development do not overlap. For example, if port 3001 or 3002 is already in use, you can choose a different port. Available ports: 3001–3999.",
     "manualSetup": "2. Manual Setup",
     "manualDescription": "If you want to create a plugin manually, follow these steps:",
     "step1": "1. Create a folder in <mark>plugins</mark> with your plugin’s name and navigate into it.",

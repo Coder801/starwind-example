@@ -56,6 +56,8 @@ export const InstallAndRun = () => {
         <Trans t={t} i18nKey="install_and_run.cliProcess" components={{ mark: <mark /> }} />
       </Typography>
 
+      <Typography tag="p">{t('install_and_run.cliProcessNote')}</Typography>
+
       <Card>
         <Image
           alt="starfleet-cli create"
