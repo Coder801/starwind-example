@@ -43,7 +43,6 @@ export const RealTimeChart = () => {
   }, []);
 
   useEffect(() => {
-    console.log(data);
     const dataTemplate = {
       labels: ["Process 1", "Process 2", "Process 3", "Process 4"],
       datasets: [

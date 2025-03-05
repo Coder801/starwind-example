@@ -49,11 +49,13 @@ const nextConfig: NextConfig = {
       new DefinePlugin({
         PLUGINS: JSON.stringify(pluginEnvs),
         HOST: JSON.stringify(HOST),
-        PROTOCOL: JSON.stringify(PROTOCOL)
+        PROTOCOL: JSON.stringify(PROTOCOL),
+        IMPORT: 'pluginExampleReact19'
       }),
       new ModuleFederationPlugin({
         name: 'host',
-        remotes
+        remotes,
+        runtime: 'testPlugins'
       })
     );
 

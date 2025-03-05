@@ -13,18 +13,16 @@ type CodeProps = {
 };
 
 export const Code: FC<CodeProps> = ({ children, title, className, copy, lang = 'bash' }) => {
-  const text = children.trim();
-
   return (
     <div className={clsx(styles.container, className)}>
       {title && <div className={styles.title}>{title}</div>}
       <div className={styles.content}>
         <pre className={styles[lang]}>
-          <code>{text}</code>
+          <code>{children}</code>
         </pre>
         {copy && (
           <div className={styles.copy}>
-            <CopyToClipboard text={text}>
+            <CopyToClipboard text={children}>
               <svg
                 aria-hidden="true"
                 height="16"

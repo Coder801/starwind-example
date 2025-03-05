@@ -46,7 +46,7 @@
     "title": "Using Docker to Run the Project",
     "description": "Docker allows running the core of the StarFleet Project and all plugins inside containers, providing environment isolation and easy deployment.",
     "stepsTitle": "Steps to Run the Project in Docker",
-    "step1": "Make sure you have Docker installed",
+    "step1": "Make sure you have Docker installed ",
     "step2": "Build Docker images in the root of the project by running the following commands:",
     "step3": "(Optional) Start the containers if they are not running:",
     "structureTitle": "Docker Container Structure",

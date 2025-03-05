@@ -7,7 +7,8 @@ import { Button } from '@/ui/Button';
 import { Card } from '@/ui/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import { importRegister } from '@/utils/importRegister';
+import { importRegister } from '@/config/importRegister';
+
 import styles from './styles.module.scss';
 
 import { Base as BaseLayout } from '@/layouts/Base';

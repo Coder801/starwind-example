@@ -16,20 +16,18 @@ services:
 
   core:
     build:
-      context: .
+      context: ./core
       dockerfile: Dockerfile
     container_name: core
     ports:
       - "3000:3000"
-    volumes:
-      - ./core:/app
-      - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
       - WATCHPACK_POLLING=true
       - NEXT_WEBPACK_USEPOLLING=1
     networks:
       - internal-network
+      - external-network
 
   # Plugins
   # plugin-example-react-18:

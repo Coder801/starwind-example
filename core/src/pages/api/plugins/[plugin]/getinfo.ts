@@ -31,8 +31,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const { status, info } = await response.json();
 
-    console.log(`Fetched info for plugin "${JSON.stringify(info)}"`);
-
     return res.status(200).json({ plugin, status, info });
   } catch (error: unknown) {
     const errorMessage = (error as { message: string }).message;

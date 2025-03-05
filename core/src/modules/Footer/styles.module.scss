@@ -1,9 +1,10 @@
 .container {
   display: flex;
+  justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 
-  .copy {
-    width: 300px;
-    text-align: center;
+  & .copy {
+    margin-left: 290px;
   }
 }

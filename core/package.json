@@ -11,13 +11,17 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
     "framer-motion": "^12.4.7",
+    "i18next": "^24.2.2",
+    "i18next-browser-languagedetector": "^8.0.4",
     "lodash": "^4.17.21",
     "next": "15.2.0",
     "next-intl": "^3.26.5",
     "react": "^19.0.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.1",
     "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
@@ -32,5 +36,6 @@
     "sass": "^1.85.1",
     "typescript": "^5",
     "webpack": "^5.98.0"
-  }
+  },
+  "packageManager": "yarn@4.7.0+sha512.5a0afa1d4c1d844b3447ee3319633797bcd6385d9a44be07993ae52ff4facabccafb4af5dcd1c2f9a94ac113e5e9ff56f6130431905884414229e284e37bb7c9"
 }
